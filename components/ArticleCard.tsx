@@ -15,6 +15,12 @@ export default function ArticleCard({ article }: { article: ArticleMeta }) {
         <CardTitle>{article.title}</CardTitle>
         <CardMeta>{formatDate(article.date)}</CardMeta>
         <p className="line-clamp-3 text-sm text-foreground/80">{article.excerpt}</p>
+        {article.contributor && (
+          <p className="text-xs text-muted">
+            Kontribusi dari <span className="font-medium text-foreground/80">{article.contributor.name}</span>
+            {article.contributor.school ? ` · ${article.contributor.school}` : ""}
+          </p>
+        )}
         <CardFooterLink href={`/cerita/${article.slug}`}>Baca Selengkapnya</CardFooterLink>
       </CardBody>
     </Card>

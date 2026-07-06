@@ -4,7 +4,13 @@ import { useState } from "react";
 
 export default function StoryForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
-  const [form, setForm] = useState({ name: "", email: "", message: "", publish: false });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    school: "",
+    message: "",
+    publish: false,
+  });
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -17,7 +23,7 @@ export default function StoryForm() {
       });
       if (!res.ok) throw new Error("failed");
       setStatus("done");
-      setForm({ name: "", email: "", message: "", publish: false });
+      setForm({ name: "", email: "", school: "", message: "", publish: false });
     } catch {
       setStatus("error");
     }
@@ -53,6 +59,15 @@ export default function StoryForm() {
         />
       </div>
       <div>
+        <label className="mb-1 block text-sm font-medium text-foreground">Sekolah / Instansi</label>
+        <input
+          value={form.school}
+          onChange={(e) => setForm({ ...form, school: e.target.value })}
+          placeholder="Opsional"
+          className="w-full rounded-xl border border-card-border bg-card px-4 py-2.5 text-sm outline-none focus:border-primary"
+        />
+      </div>
+      <div>
         <label className="mb-1 block text-sm font-medium text-foreground">Cerita atau Tips Anda</label>
         <textarea
           required
@@ -69,7 +84,7 @@ export default function StoryForm() {
           onChange={(e) => setForm({ ...form, publish: e.target.checked })}
           className="h-4 w-4 rounded border-card-border text-primary"
         />
-        Boleh dipublikasikan di halaman Cerita & Insight
+        Boleh dipublikasikan dengan nama saya
       </label>
       <button
         type="submit"

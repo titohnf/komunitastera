@@ -4,7 +4,7 @@ import EventCard from "@/components/EventCard";
 import JobCard from "@/components/JobCard";
 import ArticleCard from "@/components/ArticleCard";
 import NewsletterForm from "@/components/NewsletterForm";
-import { getUpcomingEvents, getLatestJobs } from "@/lib/data";
+import { getUpcomingEvents, getLatestJobs, getTestimonials } from "@/lib/data";
 import { getAllArticlesMeta } from "@/lib/articles";
 
 const BELIEFS = [
@@ -29,13 +29,14 @@ export default function Home() {
   const events = getUpcomingEvents(2);
   const jobs = getLatestJobs(3);
   const articles = getAllArticlesMeta().slice(0, 3);
+  const testimonials = getTestimonials();
 
   return (
     <div>
       <section className="mx-auto max-w-6xl px-4 pt-16 pb-20 sm:px-6 sm:pt-24 sm:pb-28">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="text-3xl font-bold leading-tight tracking-tight text-primary-dark sm:text-5xl">
-            Komunitas Guru & Tutor Indonesia untuk Terus Belajar dan Berkembang
+            Komunitas Pendidik untuk Terus Belajar dan Berkembang
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-foreground/80">
             Kami percaya guru yang sejahtera menciptakan pendidikan yang lebih baik. Di
@@ -55,6 +56,36 @@ export default function Home() {
             >
               Baca Cerita Kami
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6">
+        <div className="grid gap-8 rounded-3xl border border-card-border bg-card p-8 sm:grid-cols-[auto_1fr] sm:items-center sm:p-10">
+          <div className="text-center sm:border-r sm:border-card-border sm:pr-10 sm:text-left">
+            <p className="text-4xl font-bold text-primary-dark">500+</p>
+            <p className="mt-1 text-sm text-muted">guru &amp; tutor tergabung</p>
+          </div>
+          <div className="grid gap-6 sm:grid-cols-2">
+            {testimonials.map((t) => (
+              <blockquote key={t.name} className="flex gap-4">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-bold text-primary-dark">
+                  {t.name
+                    .split(" ")
+                    .map((n) => n[0])
+                    .slice(0, 2)
+                    .join("")}
+                </span>
+                <div>
+                  <p className="text-sm italic leading-relaxed text-foreground/85">
+                    &ldquo;{t.quote}&rdquo;
+                  </p>
+                  <p className="mt-2 text-sm font-semibold text-foreground">
+                    {t.name} <span className="font-normal text-muted">— {t.school}</span>
+                  </p>
+                </div>
+              </blockquote>
+            ))}
           </div>
         </div>
       </section>

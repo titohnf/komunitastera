@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Mail, AtSign, Handshake } from "lucide-react";
+import { Mail, AtSign, Handshake, MessageCircle } from "lucide-react";
 import StoryForm from "@/components/StoryForm";
 
 export const metadata: Metadata = {
@@ -57,6 +57,16 @@ export default function KontakPage() {
               @tera.or.id
             </li>
           </ul>
+
+          <a
+            href="https://chat.whatsapp.com/placeholder-grup-tera"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 flex items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-dark"
+          >
+            <MessageCircle size={18} />
+            Gabung Grup WhatsApp Komunitas
+          </a>
         </aside>
       </div>
     </div>

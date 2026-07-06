@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllJobs, getJobBySlug } from "@/lib/data";
 import { formatDate } from "@/lib/format";
+import ShareWhatsApp from "@/components/ShareWhatsApp";
 
 const MODE_LABEL = { remote: "Remote", onsite: "Onsite", hybrid: "Hybrid" };
 
@@ -45,6 +46,10 @@ export default async function JobDetailPage({
       <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm text-muted">
         <span>{job.location}</span>
         <span>Diposting {formatDate(job.postedDate)}</span>
+      </div>
+
+      <div className="mt-6">
+        <ShareWhatsApp title={job.title} path={`/karier/${job.slug}`} />
       </div>
 
       <div className="prose-tera mt-10 text-foreground/90">

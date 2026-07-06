@@ -24,6 +24,7 @@ export default function Footer() {
               <li><Link href="/event" className="hover:text-primary-dark">Event</Link></li>
               <li><Link href="/karier" className="hover:text-primary-dark">Karier</Link></li>
               <li><Link href="/cerita" className="hover:text-primary-dark">Cerita & Insight</Link></li>
+              <li><Link href="/resource" className="hover:text-primary-dark">Resource</Link></li>
               <li><Link href="/tentang" className="hover:text-primary-dark">Tentang Kami</Link></li>
             </ul>
           </div>

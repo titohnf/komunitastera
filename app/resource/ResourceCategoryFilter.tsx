@@ -1,29 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
-export default function CategoryFilter({
+export default function ResourceCategoryFilter({
   categories,
   active,
 }: {
   categories: string[];
   active?: string;
 }) {
-  const searchParams = useSearchParams();
-
-  function hrefFor(cat?: string) {
-    const params = new URLSearchParams(searchParams.toString());
-    params.delete("kategori");
-    if (cat) params.set("kategori", cat);
-    const qs = params.toString();
-    return qs ? `/cerita?${qs}` : "/cerita";
-  }
-
   return (
     <div className="mt-6 flex flex-wrap gap-2">
       <Link
-        href={hrefFor()}
+        href="/resource"
         className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
           !active ? "bg-primary text-primary-foreground" : "bg-muted-bg text-foreground/80 hover:bg-muted-bg/70"
         }`}
@@ -33,7 +22,7 @@ export default function CategoryFilter({
       {categories.map((cat) => (
         <Link
           key={cat}
-          href={hrefFor(cat)}
+          href={`/resource?kategori=${encodeURIComponent(cat)}`}
           className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
             active === cat ? "bg-primary text-primary-foreground" : "bg-muted-bg text-foreground/80 hover:bg-muted-bg/70"
           }`}

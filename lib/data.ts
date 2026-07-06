@@ -1,6 +1,8 @@
 import events from "@/data/events.json";
 import jobs from "@/data/jobs.json";
-import type { EventItem, JobItem } from "@/types";
+import resources from "@/data/resources.json";
+import testimonials from "@/data/testimonials.json";
+import type { EventItem, JobItem, ResourceItem, Testimonial } from "@/types";
 
 export function getAllEvents(): EventItem[] {
   return [...(events as EventItem[])].sort(
@@ -31,4 +33,12 @@ export function getLatestJobs(limit: number): JobItem[] {
 
 export function getJobBySlug(slug: string): JobItem | undefined {
   return (jobs as JobItem[]).find((j) => j.slug === slug);
+}
+
+export function getAllResources(): ResourceItem[] {
+  return resources as ResourceItem[];
+}
+
+export function getTestimonials(): Testimonial[] {
+  return testimonials as Testimonial[];
 }

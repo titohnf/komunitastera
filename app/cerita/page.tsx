@@ -3,6 +3,7 @@ import ArticleCard from "@/components/ArticleCard";
 import { getAllArticlesMeta } from "@/lib/articles";
 import type { ArticleCategory } from "@/types";
 import CategoryFilter from "./CategoryFilter";
+import SearchBar from "./SearchBar";
 
 export const metadata: Metadata = {
   title: "Cerita & Insight — Tera",
@@ -19,13 +20,19 @@ const CATEGORIES: ArticleCategory[] = [
 export default async function CeritaPage({
   searchParams,
 }: {
-  searchParams: Promise<{ kategori?: string }>;
+  searchParams: Promise<{ kategori?: string; q?: string }>;
 }) {
-  const { kategori } = await searchParams;
+  const { kategori, q } = await searchParams;
   const articles = getAllArticlesMeta();
-  const filtered = kategori
-    ? articles.filter((a) => a.category === kategori)
-    : articles;
+
+  const query = q?.trim().toLowerCase();
+  const filtered = articles.filter((a) => {
+    const matchesCategory = kategori ? a.category === kategori : true;
+    const matchesQuery = query
+      ? a.title.toLowerCase().includes(query) || a.excerpt.toLowerCase().includes(query)
+      : true;
+    return matchesCategory && matchesQuery;
+  });
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
@@ -34,6 +41,10 @@ export default async function CeritaPage({
         Kumpulan cerita, tips, dan refleksi dari dan untuk guru serta tutor di seluruh
         Indonesia.
       </p>
+
+      <div className="mt-8">
+        <SearchBar defaultValue={q} />
+      </div>
 
       <CategoryFilter categories={CATEGORIES} active={kategori} />
 
@@ -45,7 +56,7 @@ export default async function CeritaPage({
         </div>
       ) : (
         <p className="mt-10 rounded-2xl border border-card-border bg-card p-6 text-muted">
-          Belum ada artikel untuk kategori ini.
+          Tidak ada artikel yang cocok dengan pencarian atau kategori ini.
         </p>
       )}
     </div>

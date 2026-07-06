@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllEvents, getEventBySlug } from "@/lib/data";
 import { formatDate } from "@/lib/format";
+import ShareWhatsApp from "@/components/ShareWhatsApp";
 
 export function generateStaticParams() {
   return getAllEvents().map((e) => ({ slug: e.slug }));
@@ -51,12 +52,15 @@ export default async function EventDetailPage({
         {event.description}
       </p>
 
-      <a
-        href="mailto:halo@tera.or.id?subject=Pendaftaran%20Event"
-        className="mt-10 inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-dark"
-      >
-        Daftar Event Ini
-      </a>
+      <div className="mt-10 flex flex-wrap gap-3">
+        <a
+          href="mailto:halo@tera.or.id?subject=Pendaftaran%20Event"
+          className="inline-flex w-fit rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary-dark"
+        >
+          Daftar Event Ini
+        </a>
+        <ShareWhatsApp title={event.title} path={`/event/${event.slug}`} />
+      </div>
     </div>
   );
 }
