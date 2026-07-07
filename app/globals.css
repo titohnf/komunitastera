@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+/* DESIGN-TOKENS-START */
 :root {
   --background: #f5f8ff;
   --foreground: #101828;
@@ -13,6 +14,7 @@
   --muted: #5b6472;
   --muted-bg: #eaf1ff;
 }
+/* DESIGN-TOKENS-END */
 
 @theme inline {
   --color-background: var(--background);
