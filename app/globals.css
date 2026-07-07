@@ -8,7 +8,7 @@
   --primary: #0d6efd;
   --primary-dark: #0b57d0;
   --primary-foreground: #ffffff;
-  --accent: #0d6efd;
+  --accent: #d9a441;
   --secondary: #5b8def;
   --muted: #5b6472;
   --muted-bg: #eaf1ff;
@@ -79,5 +79,49 @@ body {
   }
   to {
     transform: scaleX(1);
+  }
+}
+
+.grid-pattern {
+  background-image:
+    linear-gradient(var(--card-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--card-border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black calc(100% - 70px), transparent 100%);
+}
+
+.grid-cell-fill {
+  position: absolute;
+  width: 47px;
+  height: 47px;
+  margin: 1px;
+  animation: grid-cell-fill 6s ease-in-out infinite;
+}
+
+@keyframes grid-cell-fill {
+  0%,
+  100% {
+    opacity: 0;
+    background: var(--primary);
+  }
+  16% {
+    opacity: 0.14;
+    background: var(--primary);
+  }
+  33% {
+    opacity: 0;
+    background: var(--secondary);
+  }
+  49% {
+    opacity: 0.14;
+    background: var(--secondary);
+  }
+  66% {
+    opacity: 0;
+    background: var(--accent);
+  }
+  82% {
+    opacity: 0.14;
+    background: var(--accent);
   }
 }
