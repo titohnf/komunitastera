@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Mail, AtSign } from "lucide-react";
+import { Mail } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
+import InstagramIcon from "@/components/InstagramIcon";
 import { WA_GROUP_LINK } from "@/lib/config";
 
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function KontakPage() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 text-center sm:px-6">
-      <h1 className="text-3xl font-bold text-primary-dark sm:text-4xl">Kontak</h1>
+      <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Kontak</h1>
       <p className="mt-3 text-foreground/75">
         Ada pertanyaan atau ingin ngobrol lebih dulu? Hubungi kami lewat kanal di bawah,
         atau langsung gabung ke Grup WhatsApp komunitas.
@@ -22,11 +23,18 @@ export default function KontakPage() {
         <ul className="space-y-4 text-left text-sm text-foreground/80">
           <li className="flex items-center gap-3">
             <Mail size={18} className="text-primary" />
-            halo@tera.or.id
+            teralearningcenter.id@gmail.com
           </li>
           <li className="flex items-center gap-3">
-            <AtSign size={18} className="text-primary" />
-            @tera.or.id
+            <InstagramIcon size={18} className="text-primary" />
+            <a
+              href="https://www.instagram.com/insantera"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-primary-dark"
+            >
+              @insantera
+            </a>
           </li>
         </ul>
 

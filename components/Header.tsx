@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
@@ -15,13 +16,11 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-card-border bg-background/95 backdrop-blur">
+    <header className="sticky top-0 z-50 border-b border-card-border bg-white/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
         <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary text-primary-foreground font-bold">
-            T
-          </span>
-          <span className="text-lg font-bold text-primary-dark">Tera</span>
+          <Image src="/logo.png" alt="Tera" width={32} height={35} className="h-9 w-auto" />
+          <span className="text-lg font-bold text-foreground">Tera</span>
         </Link>
 
         <nav className="hidden gap-1 md:flex">

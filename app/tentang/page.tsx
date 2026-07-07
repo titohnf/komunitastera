@@ -42,7 +42,7 @@ const WAYS_OF_WORKING = [
 export default function TentangPage() {
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6">
-      <h1 className="text-3xl font-bold text-primary-dark sm:text-4xl">Tentang Kami</h1>
+      <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Tentang Kami</h1>
 
       <div className="prose-tera mt-8 max-w-none text-foreground/90">
         <p>
@@ -61,7 +61,7 @@ export default function TentangPage() {
       </div>
 
       <section className="mt-16">
-        <h2 className="text-2xl font-bold text-primary-dark">Apa yang Kami Percaya</h2>
+        <h2 className="text-2xl font-bold text-foreground">Apa yang Kami Percaya</h2>
         <div className="mt-8 grid gap-8 sm:grid-cols-3">
           {BELIEFS.map(({ icon: Icon, title, body }) => (
             <div key={title}>
@@ -76,7 +76,7 @@ export default function TentangPage() {
       </section>
 
       <section className="mt-16">
-        <h2 className="text-2xl font-bold text-primary-dark">
+        <h2 className="text-2xl font-bold text-foreground">
           Bagaimana Kami Bekerja Sehari-hari
         </h2>
         <div className="mt-8 space-y-8">
