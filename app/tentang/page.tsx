@@ -93,18 +93,6 @@ export default function TentangPage() {
           ))}
         </div>
       </section>
-
-      <section className="mt-16 rounded-3xl border border-card-border bg-card p-8">
-        <h2 className="text-xl font-bold text-primary-dark">
-          Tera dalam Ekosistem yang Lebih Besar
-        </h2>
-        <p className="mt-3 text-foreground/80 leading-relaxed">
-          Tera merupakan bagian dari grup yang sama dengan lembaga bimbingan belajar dan
-          yayasan pendidikan lain. Namun berbeda dari keduanya, Tera hadir khusus untuk
-          menjadi ruang bagi guru dan tutor itu sendiri — bukan untuk layanan bimbingan
-          belajar bagi siswa.
-        </p>
-      </section>
     </div>
   );
 }
