@@ -7,12 +7,7 @@ import { Menu, X } from "lucide-react";
 
 const NAV_ITEMS = [
   { href: "/", label: "Beranda" },
-  { href: "/event", label: "Event" },
-  { href: "/karier", label: "Karier" },
-  { href: "/cerita", label: "Cerita & Insight" },
-  { href: "/resource", label: "Resource" },
   { href: "/tentang", label: "Tentang Kami" },
-  { href: "/kontak", label: "Kontak" },
 ];
 
 export default function Header() {
