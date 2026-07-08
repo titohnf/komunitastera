@@ -38,6 +38,7 @@
   --color-muted: var(--muted);
   --color-muted-bg: var(--muted-bg);
   --font-sans: var(--font-sans);
+  --radius-button: var(--radius-button);
 }
 
 body {

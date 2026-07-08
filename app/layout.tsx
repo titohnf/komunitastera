@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-const TERA_HEADER_SHA = "c6c201b58f2445e8eee22d28664a4d352be6048b";
+const TERA_HEADER_SHA = "5d4c12da4e01fa8e11bf8ed8338d5861da51ea44";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "/" },

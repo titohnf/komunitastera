@@ -22,7 +22,7 @@ export function Button({
   className?: string;
   external?: boolean;
 }) {
-  const classes = `inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:w-auto ${VARIANT_CLASSES[variant]} ${className}`;
+  const classes = `inline-flex min-h-[44px] w-full items-center justify-center gap-2 rounded-button px-6 py-3 text-sm font-semibold shadow-sm transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 sm:w-auto ${VARIANT_CLASSES[variant]} ${className}`;
 
   if (external) {
     return (
