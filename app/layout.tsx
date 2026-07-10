@@ -4,7 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import Footer from "@/components/Footer";
 
-const TERA_HEADER_SHA = "5d4c12da4e01fa8e11bf8ed8338d5861da51ea44";
+const TERA_HEADER_SHA = "117e539a8e8f65b73872f45379fb86551de6e230";
 
 const NAV_ITEMS = [
   { label: "Beranda", href: "/" },
@@ -43,6 +43,10 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col">
         <Script
           src={`https://cdn.jsdelivr.net/gh/titohnf/design-system@${TERA_HEADER_SHA}/tera-header.js`}
+          strategy="beforeInteractive"
+        />
+        <Script
+          src={`https://cdn.jsdelivr.net/gh/titohnf/design-system@${TERA_HEADER_SHA}/tera-footer.js`}
           strategy="beforeInteractive"
         />
         <tera-header
