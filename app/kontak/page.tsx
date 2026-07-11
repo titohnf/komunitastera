@@ -8,6 +8,9 @@ import { WA_GROUP_LINK } from "@/lib/config";
 export const metadata: Metadata = {
   title: "Kontak — Tera",
   description: "Info kontak Tera dan link untuk bergabung ke Grup WhatsApp komunitas.",
+  alternates: {
+    canonical: "/kontak",
+  },
 };
 
 export default function KontakPage() {

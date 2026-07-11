@@ -4,6 +4,9 @@ import { Ear, GraduationCap, HeartHandshake } from "lucide-react";
 export const metadata: Metadata = {
   title: "Tentang Kami — Tera",
   description: "Cerita berdirinya Tera dan apa yang kami percaya tentang kesejahteraan pendidik.",
+  alternates: {
+    canonical: "/tentang",
+  },
 };
 
 const BELIEFS = [

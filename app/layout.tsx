@@ -17,10 +17,26 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const SITE_URL = "https://komunitas.tera.or.id";
+const TITLE = "Tera — Ruang untuk Guru dan Tutor Indonesia";
+const DESCRIPTION =
+  "Tera adalah wajah organisasi untuk isu kesejahteraan pendidik: cerita, event, lowongan, dan profil organisasi bagi guru dan tutor di Indonesia.";
+
 export const metadata: Metadata = {
-  title: "Tera — Ruang untuk Guru dan Tutor Indonesia",
-  description:
-    "Tera adalah wajah organisasi untuk isu kesejahteraan pendidik: cerita, event, lowongan, dan profil organisasi bagi guru dan tutor di Indonesia.",
+  metadataBase: new URL(SITE_URL),
+  title: TITLE,
+  description: DESCRIPTION,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "id_ID",
+    url: SITE_URL,
+    title: TITLE,
+    description: DESCRIPTION,
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
